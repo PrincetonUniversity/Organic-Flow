@@ -1,0 +1,12 @@
+.GLOBAL vdd vss vee
+
+.subckt _inv vout vin length=10u w1=30u w2=10u w3=100u w4=10u
+m1 vout vin vdd vdd pmos l='length' w=w1
+m2 vss 2 vout vdd pmos l='length' w=w2
+m3 2 vin vdd vdd pmos l='length' w=w3
+m4 vee vee 2 vdd pmos l='length' w=w4
+.ends _inv
+
+.subckt INVX1 Y A length=10u 
+Xnr1 Y A _inv
+.ends INVX1

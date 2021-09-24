@@ -1,0 +1,19 @@
+.GLOBAL vdd vss vee
+
+
+.subckt __nand3 A B C Y  length=10u w1=100u w2=20u w3=10u w4=10u
+m1 4 A vdd vdd pmos l=length w=w1
+m2 4 B vdd vdd pmos l=length w=w1
+m3 4 C vdd vdd pmos l=length w=w1
+m4 Y A vdd vdd pmos l=length w=w2
+m5 Y B vdd vdd pmos l=length w=w2
+m6 Y C vdd vdd pmos l=length w=w2
+m7 vee vee 4 vdd pmos l=length w=w3
+m8 vss 4 Y vdd pmos l=length w=w4
+.ends __nand3
+
+
+.subckt NAND3X1 A B C Y  
+XI5 A B C Y __nand3 
+.ends NAND3X1
+

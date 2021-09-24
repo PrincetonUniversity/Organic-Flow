@@ -1,0 +1,15 @@
+.GLOBAL vdd vss vee
+
+.subckt __nor A B Y  length=10u w1=100u w2=100u w3=10u w4=10u
+m1 4 A vdd vdd pmos l=length w=w1
+m2 5 B 4 vdd pmos l=length w=w1
+m3 6 A vdd vdd pmos l=length w=w2
+m4 Y B 6 vdd pmos l=length w=w2
+m5 vee vee 5 vdd pmos l=length w=w3
+m6 vss 5 Y vdd pmos l=length w=w4
+.ends nor
+
+.subckt NOR2X1 A B Y  
+XI5 A B Y __nor
+.ends NOR2X1
+
